@@ -1,0 +1,1 @@
+This is a dash app that allows the user to analyze and visualize various environmental variables (weather, pollutants, deaths) from data extracted from the project "Our World in Data".

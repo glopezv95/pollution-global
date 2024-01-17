@@ -1,0 +1,70 @@
+body {
+    font-family: sans-serif;
+    background-color: rgb(62, 50, 50);
+}
+
+h1 {
+    border-bottom: 2px solid rgb(248, 244, 236)
+}
+
+h1, h4, h5 {
+    color: rgb(248, 244, 236);
+    margin: 4% 0px 2% 0px
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    --bs-nav-link-color: rgb(248, 244, 236);
+    --bs-nav-link-hover-color: rgb(248, 244, 236);
+    margin-bottom: 2%
+}
+
+.nav-pills {
+    --bs-nav-pills-link-active-bg: rgb(248, 244, 236);
+    --bs-nav-pills-link-active-color: rgb(62, 50, 50)
+}
+
+.nav-link {
+    color: rgb(248, 244, 236);
+    font-size: large;
+    padding-right: 10px;
+}
+
+.nav-link:hover {
+    color: rgb(62, 50, 50);
+    background-color: rgba(248, 244, 236, .8)
+}
+
+.dropdown_div {
+    margin-bottom: 2%
+}
+
+.Select--single>.Select-control .Select-value, .Select-placeholder {
+    color: rgba(62, 50, 50, .8);
+    background-color: rgb(248, 244, 236);
+}
+
+.Select-control {
+    border-radius: 25px;
+    border: none;
+    background-color: rgb(248, 244, 236);
+}
+
+.is-focused:not(.is-open)>.Select-control {
+    box-shadow: none;
+    border: none;
+}
+
+.Select-arrow {
+    border-color: rgb(62, 50, 50) transparent transparent;
+}
+
+.VirtualizedSelectOption {
+    color: rgb(62, 50, 50);
+    background-color: rgb(248, 244, 236);
+}
+
+.VirtualizedSelectFocusedOption {
+    background-color: rgba(62, 50, 50, .5);
+}
