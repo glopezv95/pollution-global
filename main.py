@@ -13,7 +13,7 @@ app.layout = dbc.Container([
     
     dbc.Nav(className = 'nav',
             children = [
-                dbc.NavItem(dbc.NavLink('Weather variables',
+                dbc.NavItem(dbc.NavLink('Climate variables',
                                         href = '/',
                                         active = 'exact')),
                 dbc.NavItem(dbc.NavLink('CO2 distribution',

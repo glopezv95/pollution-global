@@ -2,12 +2,12 @@ import pandas as pd
 import datetime as dt
 
 # Import data from csv
-weather_df = pd.read_csv('data/weather.csv')
+climate_df = pd.read_csv('data/weather.csv')
 death_df = pd.read_csv('data/deaths_pollution.csv')
 co2_df = pd.read_csv('data/co2_emission.csv')
 
-# Add 'Code' column to weather_df and co2_df
-for df_name, col in {'weather_df': 'country', 'co2_df': 'Country Name'}.items():
+# Add 'Code' column to climate_df and co2_df
+for df_name, col in {'climate_df': 'country', 'co2_df': 'Country Name'}.items():
     
     df = globals()[df_name]
     
@@ -22,34 +22,34 @@ for df_name, col in {'weather_df': 'country', 'co2_df': 'Country Name'}.items():
     globals()[df_name] = merged_df
 
 # Drop duplicates
-for df_name in ['weather_df', 'death_df', 'co2_df']:
+for df_name in ['climate_df', 'death_df', 'co2_df']:
 
     df = globals()[df_name]
     df = df.drop_duplicates().reset_index(drop = True)
     globals()[df_name] = df
 
-# Clean and filter weather_df
-weather_df = weather_df[['location_name', 'latitude', 'longitude', 'last_updated', 'temperature_celsius',
+# Clean and filter climate_df
+climate_df = climate_df[['location_name', 'latitude', 'longitude', 'last_updated', 'temperature_celsius',
                          'precip_mm', 'uv_index', 'air_quality_Carbon_Monoxide',
                          'air_quality_Ozone', 'air_quality_Nitrogen_dioxide',
                          'air_quality_Sulphur_dioxide', 'air_quality_PM2.5', 'air_quality_PM10',
                          'Code']]
 
-weather_df['last_updated'] = pd.to_datetime(weather_df['last_updated'])
+climate_df['last_updated'] = pd.to_datetime(climate_df['last_updated'])
 
-weather_df.rename(columns = {
+climate_df.rename(columns = {
     'precip_mm':'Precipitation (mm)', 'uv_index':'UV',
     'air_quality_Carbon_Monoxide':'CO', 'air_quality_Ozone':'O3',
     'air_quality_Nitrogen_dioxide':'NO2', 'air_quality_Sulphur_dioxide':'SO2',
     'air_quality_PM2.5':'PM2.5', 'air_quality_PM10':'PM10'}, inplace = True)
 
-# Normalize the data in weather_df with the sample mean and std
-for column in weather_df.columns[5:-1]:
-    mean = weather_df[column].mean()
-    std = weather_df[column].std()
-    weather_df[f'{column}.norm'] = (weather_df[column] - mean) / std
+# Normalize the data in climate_df with the sample mean and std
+for column in climate_df.columns[5:-1]:
+    mean = climate_df[column].mean()
+    std = climate_df[column].std()
+    climate_df[f'{column}.norm'] = (climate_df[column] - mean) / std
     
-weather_df['date'] = weather_df['last_updated'].dt.date
+climate_df['date'] = climate_df['last_updated'].dt.date
 
 # Filter death_df
 death_df = death_df[['Entity', 'Year', 'Air pollution (total) (deaths per 100,000)',
