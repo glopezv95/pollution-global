@@ -2,7 +2,7 @@ import pandas as pd
 import datetime as dt
 
 # Import data from csv
-climate_df = pd.read_csv('data/weather.csv')
+climate_df = pd.read_csv('data/climate.csv')
 death_df = pd.read_csv('data/deaths_pollution.csv')
 co2_df = pd.read_csv('data/co2_emission.csv')
 
