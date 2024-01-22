@@ -51,6 +51,17 @@ h1, h4, h5 {
     background-color: rgb(248, 244, 236);
 }
 
+.Select--multi .Select-value {
+    background-color: rgb(248, 244, 236);
+    border-radius: 2px;
+    border: None;
+    color: rgb(62, 50, 50)
+}
+
+.Select--multi .Select-value-icon {
+    border-right: 1px solid rgba(62, 50, 50, .5);
+}
+
 .is-focused:not(.is-open)>.Select-control {
     box-shadow: none;
     border: none;
